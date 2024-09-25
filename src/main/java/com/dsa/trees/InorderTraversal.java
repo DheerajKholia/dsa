@@ -74,7 +74,7 @@ public class InorderTraversal {
         root.right.right.right.right.left = new TreeNode(18);
         root.right.right.right.right.right = new TreeNode(19);
         root.right.right.right.right.right = new TreeNode(20);
-        Solution solution = new Solution();
+        InorderTraversal solution = new InorderTraversal();
         printArray(solution.inorderTraversal(root));
     }
 
@@ -85,9 +85,6 @@ public class InorderTraversal {
     }
 
 
-}
-
-class Solution {
     public int[] inorderTraversal(TreeNode A) {
         int size=getSize(A);
         int[] result=new int[size];
@@ -126,26 +123,5 @@ class Solution {
         }
         int size= 1 + getSize(node.left) + getSize(node.right);
         return size;
-    }
-}
-
-class Pair {
-    TreeNode node;
-    int task;
-    Pair(TreeNode node) {
-        this.node = node;
-        task = 1;
-    }
-}
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-        left = null;
-        right = null;
     }
 }
