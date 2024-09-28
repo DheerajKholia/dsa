@@ -1,7 +1,5 @@
 package com.dsa.trees;
 
-import org.w3c.dom.Node;
-
 import java.util.Stack;
 
 /*
@@ -72,6 +70,7 @@ public class PreorderTraversal {
 
         printArray(solution.preOrderTraversal(root));
     }
+
     public int[] preOrderTraversal(TreeNode root) {
         int size = getSize(root);
         int[] result = new int[size];
@@ -81,20 +80,20 @@ public class PreorderTraversal {
         stack.push(pair);
         while (!stack.isEmpty()) {
             Pair top = stack.peek();
-            if(top.task == 1){
+            if (top.task == 1) {
                 top.task++;
                 result[index++] = top.node.val;
-            }else if(top.task == 2){
-                if(top.node.left != null){
+            } else if (top.task == 2) {
+                if (top.node.left != null) {
                     stack.push(new Pair(top.node.left));
                 }
                 top.task++;
-            }else if(top.task == 3){
-                if(top.node.right != null){
+            } else if (top.task == 3) {
+                if (top.node.right != null) {
                     stack.push(new Pair(top.node.right));
                 }
                 top.task++;
-            }else {
+            } else {
                 stack.pop();
             }
         }
@@ -106,8 +105,9 @@ public class PreorderTraversal {
             System.out.print(a[i] + " ");
         }
     }
-    int getSize(TreeNode root){
-        if(root==null) return 0;
+
+    int getSize(TreeNode root) {
+        if (root == null) return 0;
         return 1 + getSize(root.left) + getSize(root.right);
     }
 }
